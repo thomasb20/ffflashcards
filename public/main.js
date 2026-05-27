@@ -1,5 +1,8 @@
 // main.js for ...ffflashcards.
 
+// Constants
+const ROOT_ELEMENT = document.querySelector(':root'); // Root element: allows to change CSS variables.
+
 // Helpers
 
 function getAuthToken() {
@@ -52,6 +55,12 @@ async function authenticatedFetch(endpoint, options = {}) {
     }
 
     return response;
+}
+
+// Function to change CSS variables
+function changeStyleVar(variable, value) {
+  console.log(`CSS variable ${variable} set to ${value}.`);
+  ROOT_ELEMENT.style.setProperty(variable, value);
 }
 
 // End helpers
@@ -169,6 +178,72 @@ fetch('/get-version')
         console.error('Error fetching version:', error);
         versionElement.textContent = "Unknown";
     });
+
+// Settings
+// Open settings menu
+document.getElementById("settings-button").addEventListener("click", () => {
+    document.getElementById("settings-overlay").style.display = "block";
+    document.getElementById("settings-button").style.display = "none";
+});
+
+// Close settings menu
+document.getElementById("close-settings").addEventListener("click", () => {
+    document.getElementById("settings-overlay").style.display = "none";
+    document.getElementById("settings-button").style.display = "block";
+});
+
+// Change primary color
+document.getElementById("primary-color-select").addEventListener("change", (event) => {
+    const color = event.target.value;
+    if (color === "blue") {
+        changeStyleVar("--primary-color", "#1e3a5f");
+        changeStyleVar("--primary-color-dark", "#152a45");
+    }
+    if (color === "gray") {
+        changeStyleVar("--primary-color", "#5a7c8c");
+        changeStyleVar("--primary-color-dark", "#4a6c7c");
+    }
+    if (color === "black") {
+        changeStyleVar("--primary-color", "#383636");
+        changeStyleVar("--primary-color-dark", "#000000");
+    }
+});
+
+// Change secondary color
+document.getElementById("secondary-color-select").addEventListener("change", (event) => {
+    const color = event.target.value;
+    if (color === "gray") {
+        changeStyleVar("--secondary-color", "#5a7c8c");
+        changeStyleVar("--secondary-color-light", "#6a8c9c");
+        changeStyleVar("--secondary-color-lighter", "#7a92a8");
+    }
+    if (color === "blue") {
+        changeStyleVar("--secondary-color", "#1e3a5f");
+        changeStyleVar("--secondary-color-light", "#2e4a6f");
+        changeStyleVar("--secondary-color-lighter", "#3e5a7f");
+    }
+    if (color === "green") {
+        changeStyleVar("--secondary-color", "#2d7a3e");
+        changeStyleVar("--secondary-color-light", "#3d8a4e");
+        changeStyleVar("--secondary-color-lighter", "#4d9a5e");
+    }
+});
+
+// Change link color
+document.getElementById("link-color-select").addEventListener("change", (event) => {
+    const color = event.target.value;
+    if (color === "blue") {
+        changeStyleVar("--link", "#007BFF");
+    }
+    if (color === "green") {
+        changeStyleVar("--link", "#28a745");
+    }
+    if (color === "purple") {
+        changeStyleVar("--link", "#6f42c1");
+    }
+});
+
+// End of settings
 
 // Initialisation
 if (isLoggedIn()) {
