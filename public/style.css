@@ -160,7 +160,7 @@ hr {
     padding: var(--spacing-3xl);
 }
 
-.footer {
+#footer {
     text-align: center;
     padding: var(--spacing-2xl);
     border-top: 1px solid var(--accent);
