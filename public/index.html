@@ -7,15 +7,45 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="app">
-    <div id="info">
-        <h1>Welcome to ...ffflashcards!</h1>
-        <p>With ffflashcards, you can easily create, manage and study flashcards. Good luck!</p>
+<div id="start">
+    <div id="select-method">
+        <h1>...ffflashcards</h1>
+        <p>Welcome to ...ffflashcards! Log in or sign up to easily create, manage and study flashcards.</p>
+        <p>Select a method to proceed:</p>
+        <button class="login-button">Log In</button>
+        <button class="signup-button">Sign Up</button>
     </div>
-    <div id="footer">
-        <p>Made by Thomas. <a target="_blank" href="https://github.com/thomasb20/ffflashcards/">View source code on Github.</a></p>
-        <span id="version-element">Version: <span id="version">Loading...</span></span>
+    <div id="login" style="display:none;">
+        <h2>Log In</h2>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Username" autocomplete="off" required>
+            <input type="password" id="password" placeholder="Password" autocomplete="off" required>
+            <button type="submit">Log In</button>
+        </form>
+        <button class="signup-button">Sign Up instead</button>
     </div>
+    <div id="signup" style="display:none;">
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+            <input type="text" id="username" placeholder="Username" autocomplete="off" required>
+            <input type="password" id="password" placeholder="Password" autocomplete="off" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <button class="login-button">Log In instead</button>
+    </div>
+</div>
+<div id="app" style="display:none;">
+    <div id="home">
+        <div style="position:absolute; top:20px; right:20px;">
+            <button id="logout-button" style="padding:5px 15px;font-size:1rem;">Log Out</button>
+        </div>
+        <h1>...ffflashcards</h1>
+        <p id="welcome-message">Welcome to ...ffflashcards! With ffflashcards, you can easily create, manage and study flashcards.</p>
+    </div>
+    </div>
+<div id="footer">
+    <p>Made by Thomas. <a target="_blank" href="https://github.com/thomasb20/ffflashcards/">View source code on Github.</a></p>
+    <span id="version-element">Version: <span id="version">Loading...</span></span>
 </div>
     <script src="main.js"></script>
 </body>
