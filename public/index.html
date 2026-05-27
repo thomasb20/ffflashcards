@@ -7,6 +7,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<button id="settings-button" style="position:fixed; top:20px; left:20px; padding:5px 15px;font-size:1rem;">Settings</button>
+<div id="settings-overlay" style="display:none;">
+    <div id="settings">
+        <h2>Settings</h2>
+        <label for="primary-color-select">Primary color (text & most buttons):</label>
+        <select id="primary-color-select">
+            <option value="blue">Blue</option>
+            <option value="gray">Gray</option>
+            <option value="black">Black</option>
+        </select>
+        <label for="secondary-color-select">Secondary color (the rest of the buttons):</label>
+        <select id="secondary-color-select">
+            <option value="green">Green</option>
+            <option value="gray">Gray</option>
+            <option value="blue">Blue</option>
+        </select>
+        <label for="link-color-select">Link color (links):</label>
+        <select id="link-color-select">
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="purple">Purple</option>
+        </select>
+        <button id="close-settings">Close</button>
+    </div>
+</div>
 <div id="start">
     <div id="select-method">
         <h1>...ffflashcards</h1>
