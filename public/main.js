@@ -138,7 +138,6 @@ document.getElementById("login-form").addEventListener("submit", async (event) =
 
 // Logout
 function logout() {
-  document.getElementById("subject-detail").style.display = "none";
   document.getElementById("home").style.display = "block";
   clearAuthToken();
   clearUsername();
@@ -149,11 +148,11 @@ function logout() {
   document.getElementById("signup").style.display = "none";
 }
 
+document.getElementById("logout-button").addEventListener("click", logout);
+
 function showApp() {
     document.getElementById("start").style.display = "none";
     document.getElementById("app").style.display = "block";
-    updateTotalProgress();
-    initialiseSubjectList();
     document.getElementById("welcome-message").textContent = `Welcome to ...ffflashcards, ${getUsername()}! With ...ffflashcards, you can easily create, manage and study flashcards.`;
 }
 
