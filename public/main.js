@@ -169,3 +169,11 @@ fetch('/get-version')
         console.error('Error fetching version:', error);
         versionElement.textContent = "Unknown";
     });
+
+// Initialisation
+if (isLoggedIn()) {
+    showApp();
+} else {
+    document.getElementById("start").style.display = "block";
+    document.getElementById("select-method").style.display = "block";
+}
